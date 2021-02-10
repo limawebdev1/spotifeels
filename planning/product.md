@@ -8,7 +8,6 @@ it's a journaling app that analyzes the mood of your entries and creates playlis
   * Absolutely not trying to roll my own auth
 * Things the user must be able to get access to
   * Their spotifeel curated playlists
-    * TODO: Read Spotify's API to see what the limitations could be
   * Their journal entries
   * The UI to add a journal entry
     * Freeform text box with a submit button
@@ -27,3 +26,4 @@ TODO: draw out a diagram
 
 * I know that IFTTT creates playlists from the songs you like that month; I don't know whether Spotify lets you curate playlists on behalf of the user + have them own it so they can edit. But if so, it would be dope do some sort of data collection on how the user is editing the curated playlist each month and feed that back into the algorithm for how we curate the playlist
 * Because of some of my concerns, I'm leaning towards some sort of daily insight or song given to the user. It would encourage them to journal. We could even slightly tweak the complexity of the "new journal entry" UI to allow them to set their mood via music. Like "pick the color that best describes your vibe" --> color turns into playlist. Could even have an onboarding experience where they associate colors + genres.
+* Could provide audio feature analysis over time via data visualization
