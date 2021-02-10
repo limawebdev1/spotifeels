@@ -19,7 +19,7 @@ TODO: draw out a diagram
 * This might be too boring depending on how I implement this. If I wait for a month, then collect all the journal entries, put them through the sentiment analyzer, and not even proactively notify the user...I mean - I'm bored about this experience and I'm the creator, so...
 
 ### Thoughts
-* Because of some of my concerns, I'm leaning towards some sort of daily insight or song given to the user. It would encourage them to journal, and it would make the app less boring (having to wait a month before anything interesting happens).
+* Because of some of my concerns, I'm leaning towards some sort of daily feature for the user. It would encourage them to journal, and it would make the app less boring (having to wait a month before anything interesting happens).
 
 ----
 
