@@ -1,7 +1,5 @@
 import dotenv from 'dotenv';
 import SpotifyWebApi from 'spotify-web-api-node';
-import axios from 'axios';
-import querystring from 'querystring';
 
 dotenv.config();
 let spotifyApi: SpotifyWebApi;
