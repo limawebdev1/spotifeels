@@ -46,8 +46,8 @@ const analyzeTone = async (journalEntry: string): Promise<void> => {
   }
 }
 
-(async () => {
+export const getTone = async () => {
   authorizeWatson();
-  const journalEntry = getJournalEntry('zakDaAlchemist');
-  await analyzeTone(journalEntry);
-})();
+  const journalEntry = getJournalEntry('anon');
+  return analyzeTone(journalEntry);
+};
