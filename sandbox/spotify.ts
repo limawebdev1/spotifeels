@@ -88,16 +88,16 @@ interface Seeds {
   seedTracks: string[];
 }
 
-const randomIndexGenerator = (): number[] => {
-  return new Array(5).map(() => Math.floor(Math.random() * 10));
+const randomIndexGenerator = (setLength: number): number[] => {
+  return [...new Array(setLength)].map(() => Math.floor(Math.random() * 10));
 }
 
 const getSeedFromUserTopTracks = async (): Promise<Seeds> => {
   try {
     const { body: { items } } = await spotifyApi.getMyTopTracks({ time_range: 'short_term', limit: 10 });
     return {
-      seedArtists: randomIndexGenerator().map(index => items[index].artists[0].id),
-      seedTracks: randomIndexGenerator().map(index => items[index].id),
+      seedArtists: randomIndexGenerator(5).map(index => items[index].artists[0].id),
+      seedTracks: randomIndexGenerator(5).map(index => items[index].id),
     }
   } catch (err) {
     console.log('getSeedFromUserTopTracks error');
@@ -105,31 +105,51 @@ const getSeedFromUserTopTracks = async (): Promise<Seeds> => {
   }
 }
 
-const getTrackVibesFromTone = async () => {
-
+export interface Vibes {
+  target_acousticness?: number;
+  target_danceability?: number;
+  target_duration_ms?: number;
+  target_energy?: number;
+  target_instrumentalness?: number;
+  target_key?: number;
+  target_liveness?: number;
+  target_loudness?: number;
+  target_mode?: number;
+  target_popularity?: number;
+  target_speechiness?: number;
+  target_tempo?: number;
+  target_time_signature?: number;
+  target_valence?: number;
 }
 
-const getTracks = async () => {
-  // 10 tracks
-  // get seed information from top tracks
-  // get recommendation settings from map
+export const getPlaylist = async (seeds: Seeds, vibes: Vibes): Promise<string> => {
+  const { isAuthorized } = await authorizeSpotify();
+  if (!isAuthorized) {
+    await authCodeGrantFlow('');
+  }
   try {
-    const { body: { tracks }} = await spotifyApi.getRecommendations({
-      min_energy: 0.4,
-      seed_artists: ['6mfK6Q2tzLMEchAr0e9Uzu', '4DYFVNKZ1uixa6SQTvzQwJ']
-    });
-    console.log(tracks);
+    const options = {
+      ...vibes,
+      seed_tracks: seeds.seedTracks,
+      // seed_artists: seeds.seedArtists,
+      limit: 10,
+    };
+    const { body: { tracks }} = await spotifyApi.getRecommendations(options);
+    const { body: { id: playlistId, uri: playlistUri }} = await spotifyApi.createPlaylist('anon');
+    await spotifyApi.addTracksToPlaylist(playlistId, tracks.map(track => track.uri))
+    return playlistUri;
   } catch (err) {
-    console.log(err);
+    console.log('getPlaylist error', err);
+    throw err;
   }
 }
 
-(async () => {
+export const getSeeds = async (): Promise<Seeds | undefined> => {
   const { isAuthorized } = await authorizeSpotify();
   if (!isAuthorized) {
     await authCodeGrantFlow('');
   }
   if (isAuthorized) {
-    await getSeedFromUserTopTracks();
+    return getSeedFromUserTopTracks(); 
   }
-})();
+}

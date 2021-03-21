@@ -34,15 +34,16 @@ const getJournalEntry = (fileName: string): string => {
   return buffer.toString('utf-8');
 }
 
-const analyzeTone = async (journalEntry: string): Promise<void> => {
+const analyzeTone = async (journalEntry: string): Promise<ToneAnalyzerV3.DocumentAnalysis> => {
   try {
     const tone = await watsonApi.tone({
       toneInput: journalEntry,
       contentType: 'text/plain',
     })
-    console.log(JSON.stringify(tone.result.document_tone));
+    return tone.result.document_tone;
   } catch (err) {
-    console.log(err);
+    console.log('analyzeTone error');
+    throw err;
   }
 }
 
