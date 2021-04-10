@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "📦 Add a dependency to current package",
+      "type": "shell",
+      "command": "./sf project add-dep --infer-package ${relativeFile} ${input:package}",
+      "problemMatcher": []
+    },
+    {
+      "label": "📦 Add a dev dependency to current package",
+      "type": "shell",
+      "command": "./sf project add-dep --dev --infer-package ${relativeFile} ${input:package}",
+      "problemMatcher": []
+    },
+  ],
+}
+  
