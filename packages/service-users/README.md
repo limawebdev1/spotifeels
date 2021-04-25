@@ -1,11 +1,4 @@
-# `service-users`
+# service-users
 
-> TODO: description
+## Architecture
 
-## Usage
-
-```
-const serviceUsers = require('service-users');
-
-// TODO: DEMONSTRATE API
-```
