@@ -1,3 +1,6 @@
-export interface KeySchema {
-  
+export interface UserItem {
+  // userId
+  hk: string;
+  // userId
+  sk: string;
 }

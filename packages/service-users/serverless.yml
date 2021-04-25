@@ -10,3 +10,13 @@ package:
 
 plugins:
   - serverless-webpack
+
+resources:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: users
+    KeySchema:
+      - AttributeName: hk
+        KeyType: HASH
+      - AttributeName: sk
+        KeyType: RANGE
