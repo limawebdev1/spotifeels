@@ -1,0 +1,26 @@
+{
+  "name": "service-users",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Lisa Ma <limawebdev@gmail.com>",
+  "homepage": "https://github.com/limawebdev1/spotifeels#readme",
+  "license": "ISC",
+  "main": "lib/service-users.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limawebdev1/spotifeels.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/limawebdev1/spotifeels/issues"
+  }
+}
