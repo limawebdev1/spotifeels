@@ -18,7 +18,8 @@
     "url": "git+https://github.com/limawebdev1/spotifeels.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "deploy": "sls deploy"
   },
   "bugs": {
     "url": "https://github.com/limawebdev1/spotifeels/issues"

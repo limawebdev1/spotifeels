@@ -8,15 +8,22 @@ package:
   exclude:
     - node_modules/**
 
-plugins:
-  - serverless-webpack
-
 resources:
-  Type: AWS::DynamoDB::Table
-  Properties:
-    TableName: users
-    KeySchema:
-      - AttributeName: hk
-        KeyType: HASH
-      - AttributeName: sk
-        KeyType: RANGE
+  Resources:
+    users:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: users
+        AttributeDefinitions:
+          - AttributeName: hk
+            AttributeType: S
+          - AttributeName: sk
+            AttributeType: S
+        KeySchema:
+          - AttributeName: hk
+            KeyType: HASH
+          - AttributeName: sk
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

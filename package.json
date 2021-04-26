@@ -1,8 +1,13 @@
 {
   "name": "root",
   "private": true,
+  
+  "scripts": {
+    "deploy": "cd ./packages/service-users && sls package && sls deploy --aws-profile limawebdev"
+  },
   "devDependencies": {
     "lerna": "^4.0.0",
+    "serverless": "2.38.0",
     "serverless-webpack": "5.4.1"
   },
   "dependencies": {
