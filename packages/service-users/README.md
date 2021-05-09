@@ -25,15 +25,16 @@ hk, sk - userId, userId, auth info
 
 ## In progress
 
-* Writing persistence layer methods - fetch user
+* Test persistence layers locally
 
 ## Next up
 
-* Writing persistence layer methods
+* Wire up a lambda f(x)
 
 ## Completed Things
 
 * Spinning up dynamo on serverless and deploy
+* Wrote persistence layer methods
 
 ## Stuff I think would be nice to do
 
