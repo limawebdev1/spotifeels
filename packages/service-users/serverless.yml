@@ -8,6 +8,18 @@ package:
   exclude:
     - node_modules/**
 
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+
+custom:
+  dynamodb:
+    stages:
+      - test
+    start:
+      inMemory: true
+      migrate: true
+
 resources:
   Resources:
     users:

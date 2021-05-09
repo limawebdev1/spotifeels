@@ -48,3 +48,4 @@ hk, sk - userId, userId, auth info
 
 * https://www.gorillastack.com/blog/real-time-events/optimizing-your-lambda-cold-starts-with-serverless-webpack/#:~:text=By%20default%2C%20serverless%20generates%20one,up%20together%20and%20then%20zipped.
 * https://dev.to/brachiwernick/lerna-webpack-serverless-4eef
+* https://michael-timbs.medium.com/testing-dynamodb-offline-with-serverless-framework-4ed027bf9b5f
