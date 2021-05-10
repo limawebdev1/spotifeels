@@ -1,3 +1,4 @@
 {
+  "setupFiles": ["./tests/setup/setEnvironment.js"],
   "preset": "@shelf/jest-dynamodb"
 }

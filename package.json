@@ -2,10 +2,13 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "deploy": "cd ./packages/service-users && sls package && sls deploy --aws-profile limawebdev"
+    "deploy": "cd ./packages/service-users && sls package && sls deploy --aws-profile limawebdev",
+    "test": "jest --config jest.config.json"
   },
   "devDependencies": {
     "@shelf/jest-dynamodb": "^1.8.1",
+    "@types/jest": "^26.0.23",
+    "jest": "^26.6.3",
     "lerna": "^4.0.0",
     "serverless": "2.38.0",
     "serverless-dynamodb-local": "^0.2.39",
